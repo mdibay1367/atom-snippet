@@ -19,6 +19,9 @@
 # If you are unfamiliar with CSON, you can read more about it in the
 # Atom Flight Manual:
 # https://atom.io/docs/latest/using-atom-basic-customization#cson
+
+#Angular Snippets
+
 #Angular Config Snippet
 '.source.js':
   'Angular Config':
@@ -108,3 +111,26 @@
 })();
      """
      'description': 'Output AnuglarJS directive template to console'
+
+#HTML Snippets
+
+#Angular HTML Template
+'.text.html.basic':
+  'Angular HTML Template':
+     'prefix': 'ahtml'
+     'body': """
+<!DOCTYPE html>
+<html ng-app=${1: "AngularApp"} ng-cloak>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href=${2: "src/app.css"} media="screen" title="no title">
+    <title></title>
+  </head>
+  <body>
+
+    <script src=${3:"bower_components/angular/angular.min.js"}></script>
+    <script src=${4:"src/app.js"}></script>
+  </body>
+</html>
+"""
+  'description': 'Output AngularJS HTML template to console'

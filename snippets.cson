@@ -1,0 +1,110 @@
+# Your snippets
+#
+# Atom snippets allow you to enter a simple prefix in the editor and hit tab to
+# expand the prefix into a larger code block with templated values.
+#
+# You can create a new snippet in this file by typing "snip" and then hitting
+# tab.
+#
+# An example CoffeeScript snippet to expand log to console.log:
+#
+# '.source.coffee':
+#   'Console log':
+#     'prefix': 'log'
+#     'body': 'console.log $1'
+#
+# Each scope (e.g. '.source.coffee' above) can only be declared once.
+#
+# This file uses CoffeeScript Object Notation (CSON).
+# If you are unfamiliar with CSON, you can read more about it in the
+# Atom Flight Manual:
+# https://atom.io/docs/latest/using-atom-basic-customization#cson
+#Angular Config Snippet
+'.source.js':
+  'Angular Config':
+     'prefix': 'aconf'
+     'body': """
+ (function(){
+ 	'use strict';
+ 	angular
+ 		.module(${1:'AppName'})
+ 		.config(${2:appConfig});
+
+ 	${3:appConfig}.$inject = ['$routeProvider'];
+ 	function ${4:appConfig}($routeProvider) {
+ 		$routeProvider
+ 			.when('/', {
+ 				templateUrl: '',
+ 				controller: '',
+ 				controllerAs: 'vm'
+ 			})
+ 			.otherWise({
+ 				templateUrl: '',
+ 				controller: '',
+ 				controllerAs: 'vm'
+ 			});
+ 	}
+ })();
+     """
+     'description': 'Output AnuglarJS config template to console'
+  #Angular App Snippet
+  'Angular App':
+     'prefix': 'aapp'
+     'body': """
+ (function(){
+ 	'use strict';
+ 	 angular
+ 		.module(${1:'AppName'}, ['ngRoute']);
+ })();"""
+     'description': 'Output AnuglarJS App module template to console'
+  #Angular Controller Snippet
+  'Angular Controller':
+     'prefix': 'acon'
+     'body': """
+ (function() {
+ 	'use strict';
+ 	angular
+ 		.module(${1:'AppName'})
+ 		.controller(${2:'ControllerConstructor'}, ${3:ControllerConstructor});
+
+    ${4:ControllerConstructor}.$inject = [];
+     function ${5:ControllerConstructor()} {
+        var vm = this;
+    }
+ })();"""
+     'description': 'Output AnuglarJS controller template to console'
+  #Angular Directive Snippet
+  'Angular Directive':
+     'prefix': 'adi'
+     'body': """
+(function(){
+  'use strict';
+  angular
+    .module(${1:'AppName'})
+    .directive(${2:'directiveName'}, ${3:directiveName});
+
+    function ${2:directiveName}() {
+      var directive = {
+        restrict: 'E',
+        replace: 'true',
+        template: '<div></div>',
+        controllerAs: 'vm',
+        scope: {
+        },
+        controller: Controller,
+        bindToController: false,
+        link: link
+      };
+
+      function link(scope, element, attrs, ctrl) {
+      };
+      return directive;
+    }
+
+    Controller.$inject = ['$scope']
+    function Controller($scope) {
+      var vm = this;
+    }
+})();
+     """
+     'description': 'Output AnuglarJS directive template to console'
